@@ -20,7 +20,7 @@ The **Notice PDF Generation System** is a Spring Boot application that allows us
 ## Architecture
 The system follows a layered architecture:
 1. **Controller Layer**: Handles API requests (`NoticeController`, `PdfController`, `NoticeTemplateController`).
-2. **Service Layer**: Contains business logic (`NoticeService`, `PdfService`, `TemplateService`).
+2. **Service Layer**: Contains business logic (`NoticeService`, `PdfService`, `TemplateService`, `NoticeTemplateService`, `PdfGeneratorService`).
 3. **Repository Layer**: Interfaces with the database using JPA (`NoticeRepository`, `NoticeTemplateRepository`).
 4. **Exception Handling**: Centralized exception handling (`GlobalExceptionHandler`).
 
@@ -36,12 +36,16 @@ The system follows a layered architecture:
    git clone https://github.com/vrohit939/notice-pdf-generator.git
    cd notice-pdf-generator
    ```
-2. Configure the database in `application.properties`:
+2. Configure the database in `application.yml`:
    ```properties
-   spring.datasource.url=jdbc:mysql://localhost:3306/notice_db
-   spring.datasource.username=root
-   spring.datasource.password=yourpassword
-   spring.jpa.hibernate.ddl-auto=update
+   spring:
+     datasource:
+       url: jdbc:mysql://localhost:3306/notice_db
+       username: root
+       password: yourpassword
+     jpa
+       hibernate:
+         ddl-auto: update
    ```
 3. Build and run the application:
    ```sh
