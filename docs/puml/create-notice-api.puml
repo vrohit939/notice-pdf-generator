@@ -1,0 +1,13 @@
+@startuml
+actor User
+participant NoticeController
+participant NoticeService
+participant Database
+
+User -> NoticeController : POST /api/v1/notices (Notice Data)
+NoticeController -> NoticeService : createNotice(noticeDto)
+NoticeService -> Database : Save Notice
+Database -> NoticeService : Notice Saved
+NoticeService -> NoticeController : Return Saved Notice
+NoticeController -> User : Response (200 OK, Notice Details)
+@enduml

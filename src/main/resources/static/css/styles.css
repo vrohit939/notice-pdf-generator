@@ -1,0 +1,78 @@
+/* Global Styling */
+body {
+    font-family: 'NotoSansDevanagari', 'ArialUnicodeMS', 'NotoSans', 'DejaVuSans', sans-serif;
+    font-size: 12pt;
+    color: #333;
+    margin: 20px;
+    line-height: 1.5;
+}
+
+/* Headings */
+h1, h2, h3 {
+    font-family: 'NotoSans', sans-serif;
+    color: #222;
+}
+
+h1 {
+    font-size: 24pt;
+    text-align: center;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 20pt;
+    text-align: left;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 16pt;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* Paragraphs */
+p {
+    font-family: 'NotoSansDevanagari', sans-serif;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #444;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+/* Lists */
+ul, ol {
+    margin-left: 20px;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    font-size: 10pt;
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    color: #777;
+}
+
+/* Unicode & Right-to-Left Support */
+.rtl {
+    direction: rtl;
+    text-align: right;
+}

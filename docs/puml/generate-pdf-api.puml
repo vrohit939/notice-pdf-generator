@@ -1,0 +1,25 @@
+@startuml
+actor User
+participant PdfController
+participant PdfService
+participant NoticeService
+participant TemplateService
+participant PdfGeneratorService
+
+User -> PdfController : GET /api/v1/pdf/generate/{noticeId}
+PdfController -> PdfService : generateNoticePdf(noticeId)
+PdfService -> NoticeService : getNoticeById(noticeId)
+NoticeService -> NoticeService : Fetch notice from DB
+NoticeService -> PdfService : Return Notice
+
+PdfService -> TemplateService : getTemplate(notice)
+TemplateService -> TemplateService : Generate HTML from template
+TemplateService -> PdfService : Return Template
+
+PdfService -> PdfGeneratorService : generatePdf(htmlContent)
+PdfGeneratorService -> PdfGeneratorService : Convert HTML to PDF
+PdfGeneratorService -> PdfService : Return PDF Bytes
+
+PdfService -> PdfController : Return PDF Response
+PdfController -> User : Response (200 OK, PDF File)
+@enduml

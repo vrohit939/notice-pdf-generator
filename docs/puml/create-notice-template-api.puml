@@ -1,0 +1,13 @@
+@startuml
+actor User
+participant NoticeTemplateController
+participant NoticeTemplateService
+participant Database
+
+User -> NoticeTemplateController : POST /api/v1/templates (Template Data)
+NoticeTemplateController -> NoticeTemplateService : createTemplate(templateDto)
+NoticeTemplateService -> Database : Save Template
+Database -> NoticeTemplateService : Template Saved
+NoticeTemplateService -> NoticeTemplateController : Return Saved Template
+NoticeTemplateController -> User : Response (200 OK, Template Details)
+@enduml
